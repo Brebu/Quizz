@@ -1,14 +1,8 @@
-# Capitolul 1 – Java Core & OOP (VERSIUNE EXTINSĂ)
-## Q001–Q120 — Nivel Senior
-
-> 📚 Ghid complet pentru interviuri Senior / Lead / Staff  
-> 🎯 Focus: Teorie aprofundată + Diagrame + Exemple practice
-
----
-
-## 🎯 Harta Conceptuală a Capitolului
-
-```mermaid
+Capitolul 1 – Java Core & OOP (VERSIUNE EXTINSĂ)
+Q001–Q120 — Nivel Senior
+📚 Ghid complet pentru interviuri Senior / Lead / Staff
+🎯 Focus: Teorie aprofundată + Diagrame + Exemple practice
+🎯 Harta Conceptuală a Capitolului
 mindmap
   root((Java Core & OOP))
     OOP Fundamentals
@@ -41,17 +35,9 @@ mindmap
       Clean Code
       Defensive Programming
       Error Handling
-```
-
----
-
-# 📦 SECȚIUNEA 1: OOP FUNDAMENTALS
-
-## Q001-Q010: Bazele OOP
-
-### Ce este OOP și de ce este fundamental în Java?
-
-```mermaid
+📦 SECȚIUNEA 1: OOP FUNDAMENTALS
+Q001-Q010: Bazele OOP
+Ce este OOP și de ce este fundamental în Java?
 graph TB
     subgraph "Paradigma OOP"
         A[Obiect] --> B[Stare<br/>fields]
@@ -70,16 +56,12 @@ graph TB
     A --> F
     A --> G
     A --> H
-```
-
-**Definiție completă:**
+Definiție completă:
 OOP structurează aplicațiile în jurul obiectelor care combină:
-- **Stare** (date/fields)
-- **Comportament** (metode)
-- **Identitate** (referință unică)
-
-**De ce Java este OOP pur:**
-```java
+Stare (date/fields)
+Comportament (metode)
+Identitate (referință unică)
+De ce Java este OOP pur:
 // ❌ Nu există funcții globale în Java
 // ✅ Totul este într-o clasă
 public class Calculator {
@@ -87,10 +69,7 @@ public class Calculator {
         return a + b;
     }
 }
-```
-
-**Anti-pattern: Anemic Domain Model**
-```java
+Anti-pattern: Anemic Domain Model
 // ❌ GREȘIT - doar date, fără comportament
 public class User {
     private String email;
@@ -119,13 +98,7 @@ public class User {
         this.email = newEmail;
     }
 }
-```
-
----
-
-### Cele 4 Principii OOP
-
-```mermaid
+Cele 4 Principii OOP
 graph LR
     subgraph "4 Piloni OOP"
         A[🔒 Încapsulare] 
@@ -145,13 +118,7 @@ graph LR
     
     D --> D1[Separă CE de CUM]
     D --> D2[Contracte clare]
-```
-
----
-
-### Încapsularea în Profunzime
-
-```mermaid
+Încapsularea în Profunzime
 sequenceDiagram
     participant Client
     participant BankAccount
@@ -166,11 +133,7 @@ sequenceDiagram
     BankAccount-->>Client: success
     
     Note over Client,InternalState: Clientul NU accesează direct starea
-```
-
-**Exemplu corect de încapsulare:**
-
-```java
+Exemplu corect de încapsulare:
 public class BankAccount {
     // Stare privată - INVARIANTA: balance >= 0
     private BigDecimal balance;
@@ -220,13 +183,7 @@ public class BankAccount {
         }
     }
 }
-```
-
----
-
-### Polimorfism: Static vs Dinamic
-
-```mermaid
+Polimorfism: Static vs Dinamic
 graph TB
     subgraph "Polimorfism Static (Compile-time)"
         A[Overloading]
@@ -243,9 +200,6 @@ graph TB
     end
     
     style B fill:#90EE90
-```
-
-```java
 // Polimorfism DINAMIC - baza OOP
 public interface PaymentProcessor {
     PaymentResult process(Payment payment);
@@ -280,13 +234,7 @@ public class PaymentService {
         PaymentResult result = processor.process(payment);
     }
 }
-```
-
----
-
-### Liskov Substitution Principle (LSP)
-
-```mermaid
+Liskov Substitution Principle (LSP)
 graph TB
     subgraph "✅ Corect LSP"
         A[Bird] --> B[Sparrow]
@@ -301,9 +249,6 @@ graph TB
         X[Bird with fly] --> Y[Penguin]
         Y -. "throw Exception" .-> Z[💥]
     end
-```
-
-```java
 // ❌ ÎNCĂLCARE LSP
 public class Bird {
     public void fly() { /* ... */ }
@@ -337,13 +282,7 @@ public class Penguin implements Bird {
     @Override public void sleep() { /* ... */ }
     // Nu are fly() - corect semantic
 }
-```
-
----
-
-### Compoziție vs Moștenire
-
-```mermaid
+Compoziție vs Moștenire
 graph LR
     subgraph "❌ Moștenire Excesivă"
         A[Vehicle] --> B[Car]
@@ -360,9 +299,6 @@ graph LR
         G --> G1[GasEngine]
         G --> G2[ElectricEngine]
     end
-```
-
-```java
 // ✅ Compoziție - flexibilitate maximă
 public class Car {
     private final Engine engine;
@@ -387,17 +323,9 @@ Engine gasEngine = new GasEngine(fuelType);
 
 Car tesla = new Car(electricEngine, new AutoTransmission(), wheels);
 Car mustang = new Car(gasEngine, new ManualTransmission(), wheels);
-```
-
----
-
-# 📦 SECȚIUNEA 2: JAVA TYPE SYSTEM
-
-## Q011-Q040: Tipuri și Memorie
-
-### String Immutability & Pool
-
-```mermaid
+📦 SECȚIUNEA 2: JAVA TYPE SYSTEM
+Q011-Q040: Tipuri și Memorie
+String Immutability & Pool
 graph TB
     subgraph "Heap Memory"
         subgraph "String Pool"
@@ -415,9 +343,6 @@ graph TB
     R3[s3] --> S3
     
     Note1["s1 == s2 → true<br/>s1 == s3 → false<br/>s1.equals(s3) → true"]
-```
-
-```java
 // Demonstrație String Pool
 String s1 = "hello";           // Pool
 String s2 = "hello";           // Aceeași referință din pool
@@ -428,13 +353,7 @@ System.out.println(s1 == s2);  // true - aceeași referință
 System.out.println(s1 == s3);  // false - obiecte diferite
 System.out.println(s1 == s4);  // true - intern() returnează din pool
 System.out.println(s1.equals(s3)); // true - aceeași valoare
-```
-
----
-
-### equals() și hashCode() Contract
-
-```mermaid
+equals() și hashCode() Contract
 graph TB
     subgraph "Contract"
         A[equals true] --> B[hashCode TREBUIE egal]
@@ -446,9 +365,6 @@ graph TB
         F --> G[key.equals pe fiecare element]
         G --> H[Return value]
     end
-```
-
-```java
 public class Employee {
     private final Long id;
     private final String email;
@@ -470,13 +386,7 @@ public class Employee {
     
     // ⚠️ REGULĂ: Folosește doar câmpuri IMMUTABLE în equals/hashCode
 }
-```
-
----
-
-### Wrapper Classes și Autoboxing
-
-```mermaid
+Wrapper Classes și Autoboxing
 graph LR
     subgraph "Integer Cache [-128, 127]"
         C1[-128]
@@ -493,9 +403,6 @@ graph LR
     style C1 fill:#90EE90
     style E fill:#FFB6C1
     style G fill:#FFB6C1
-```
-
-```java
 // ⚠️ CAPCANĂ CLASICĂ
 Integer a = 100;
 Integer b = 100;
@@ -507,13 +414,7 @@ System.out.println(c == d);  // false! (obiecte diferite)
 System.out.println(c.equals(d)); // true
 
 // ✅ REGULĂ: Întotdeauna folosește equals() pentru Wrapper
-```
-
----
-
-### Immutability Pattern
-
-```mermaid
+Immutability Pattern
 classDiagram
     class ImmutablePerson {
         -String name
@@ -527,9 +428,6 @@ classDiagram
     }
     
     note for ImmutablePerson "✅ All fields final\n✅ No setters\n✅ Defensive copy in constructor\n✅ Return copies for mutable fields\n✅ with* methods return new instance"
-```
-
-```java
 public final class ImmutablePerson {
     private final String name;
     private final LocalDate birthDate;
@@ -551,17 +449,9 @@ public final class ImmutablePerson {
         return new ImmutablePerson(newName, this.birthDate, this.hobbies);
     }
 }
-```
-
----
-
-# 📦 SECȚIUNEA 3: GENERICS & TYPE SAFETY
-
-## Q051-Q060: Generics în Profunzime
-
-### Type Erasure
-
-```mermaid
+📦 SECȚIUNEA 3: GENERICS & TYPE SAFETY
+Q051-Q060: Generics în Profunzime
+Type Erasure
 graph LR
     subgraph "Compile Time"
         A["List&lt;String&gt;"]
@@ -576,9 +466,6 @@ graph LR
     B --> C
     
     Note["La runtime, toate sunt doar 'List'"]
-```
-
-```java
 // Type erasure în acțiune
 List<String> strings = new ArrayList<>();
 List<Integer> integers = new ArrayList<>();
@@ -603,13 +490,7 @@ public class Factory<T> {
         return type.getDeclaredConstructor().newInstance();
     }
 }
-```
-
----
-
-### PECS: Producer Extends, Consumer Super
-
-```mermaid
+PECS: Producer Extends, Consumer Super
 graph TB
     subgraph "? extends T (Producer/Covariant)"
         A[List ? extends Number]
@@ -622,9 +503,6 @@ graph TB
         D --> E["✅ Write: list.add(1)"]
         D --> F["❌ Read: Integer i = list.get(0) - needs cast"]
     end
-```
-
-```java
 // PECS în practică
 public class Collections {
     
@@ -646,17 +524,9 @@ List<Integer> integers = List.of(1, 2, 3);
 Collections.copy(numbers, integers); // OK!
 // numbers (super Integer) primește
 // integers (extends Number) oferă
-```
-
----
-
-# 📦 SECȚIUNEA 4: EXCEPTIONS & ERROR HANDLING
-
-## Q043-Q050: Exception Handling
-
-### Exception Hierarchy
-
-```mermaid
+📦 SECȚIUNEA 4: EXCEPTIONS & ERROR HANDLING
+Q043-Q050: Exception Handling
+Exception Hierarchy
 classDiagram
     Throwable <|-- Error
     Throwable <|-- Exception
@@ -681,11 +551,7 @@ classDiagram
     class RuntimeException {
         Unchecked
     }
-```
-
-### Exception Strategy Decision Tree
-
-```mermaid
+Exception Strategy Decision Tree
 flowchart TD
     A[Eroare detectată] --> B{Este recuperabilă?}
     B -->|Da| C{Caller poate gestiona?}
@@ -696,9 +562,6 @@ flowchart TD
     D --> G[IllegalStateException<br/>IllegalArgumentException]
     E --> H[IOException<br/>Custom checked]
     F --> I[Custom RuntimeException]
-```
-
-```java
 // ✅ Modern Exception Handling
 public class UserService {
     
@@ -743,17 +606,9 @@ public class UserNotFoundException extends RuntimeException {
     
     public Long getUserId() { return userId; }
 }
-```
-
----
-
-# 📦 SECȚIUNEA 5: MODERN JAVA FEATURES
-
-## Q063-Q080: Records, Sealed, Pattern Matching
-
-### Records (Java 16+)
-
-```mermaid
+📦 SECȚIUNEA 5: MODERN JAVA FEATURES
+Q063-Q080: Records, Sealed, Pattern Matching
+Records (Java 16+)
 classDiagram
     class RecordPoint {
         <<record>>
@@ -767,9 +622,6 @@ classDiagram
     }
     
     note for RecordPoint "✅ Immutable by default\n✅ Auto-generated methods\n✅ Compact constructors\n❌ Cannot extend classes\n❌ No additional instance fields"
-```
-
-```java
 // Record simplu
 public record Point(int x, int y) {
     // Compact constructor pentru validare
@@ -803,13 +655,7 @@ public record Order(
             .reduce(BigDecimal.ZERO, BigDecimal::add);
     }
 }
-```
-
----
-
-### Sealed Classes (Java 17+)
-
-```mermaid
+Sealed Classes (Java 17+)
 classDiagram
     class Shape {
         <<sealed>>
@@ -829,9 +675,6 @@ classDiagram
     Shape <|-- Triangle
     
     note for Shape "permits Circle, Rectangle, Triangle\nExhaustive in switch expressions"
-```
-
-```java
 // Sealed hierarchy pentru expresii
 public sealed interface Expression 
     permits Constant, Variable, BinaryOp, UnaryOp {
@@ -847,4 +690,229 @@ public double evaluate(Expression expr, Map<String, Double> env) {
     return switch (expr) {
         case Constant(var value) -> value;
         case Variable(var name) -> env.getOrDefault(name, 0.0);
-        case BinaryOp(v
+        case BinaryOp(var l, var op, var r) -> switch (op) {
+            case "+" -> evaluate(l, env) + evaluate(r, env);
+            case "-" -> evaluate(l, env) - evaluate(r, env);
+            case "*" -> evaluate(l, env) * evaluate(r, env);
+            case "/" -> evaluate(l, env) / evaluate(r, env);
+            default -> throw new IllegalArgumentException("Unknown op: " + op);
+        };
+        case UnaryOp(var op, var operand) -> switch (op) {
+            case "-" -> -evaluate(operand, env);
+            case "+" -> evaluate(operand, env);
+            default -> throw new IllegalArgumentException("Unknown op: " + op);
+        };
+        // Nu e nevoie de default - exhaustiv!
+    };
+}
+Optional Best Practices
+flowchart TD
+    A[Ai o valoare care poate lipsi?] --> B{Este return type?}
+    B -->|Da| C[✅ Folosește Optional]
+    B -->|Nu| D{Este field?}
+    D -->|Da| E[❌ Nu folosi Optional ca field]
+    D -->|Nu| F{Este parametru?}
+    F -->|Da| G[❌ Nu folosi Optional ca parametru]
+    
+    C --> H{Cum procesezi?}
+    H --> I[map/flatMap pentru transformări]
+    H --> J[orElse/orElseGet pentru default]
+    H --> K[orElseThrow pentru erori]
+    H --> L[ifPresent pentru side effects]
+public class OptionalBestPractices {
+    
+    // ✅ Return type - perfect use case
+    public Optional<User> findByEmail(String email) {
+        return Optional.ofNullable(userMap.get(email));
+    }
+    
+    // ✅ Chaining transformations
+    public String getUserDisplayName(Long userId) {
+        return findById(userId)
+            .map(User::getProfile)
+            .map(Profile::getDisplayName)
+            .orElse("Anonymous");
+    }
+    
+    // ✅ orElseGet pentru operații costisitoare
+    public User getOrCreate(String email) {
+        return findByEmail(email)
+            .orElseGet(() -> createNewUser(email)); // Lazy evaluation
+    }
+    
+    // ✅ orElseThrow pentru cazuri obligatorii
+    public User getRequired(Long id) {
+        return findById(id)
+            .orElseThrow(() -> new UserNotFoundException(id));
+    }
+    
+    // ❌ ANTI-PATTERNS
+    
+    // ❌ Nu folosi Optional.get() fără verificare
+    // user.get() // Poate arunca NoSuchElementException
+    
+    // ❌ Nu folosi Optional pentru fields
+    // private Optional<Address> address; // GREȘIT
+    
+    // ❌ Nu folosi Optional ca parametru
+    // public void process(Optional<Config> config) // GREȘIT
+    // public void process(Config config) // config poate fi null, documentează
+    
+    // ❌ Nu folosi Optional cu colecții
+    // Optional<List<User>> // GREȘIT
+    // List<User> // returnează listă goală în loc de Optional
+}
+📦 SECȚIUNEA 6: FUNCTIONAL PROGRAMMING
+Q073-Q080: Lambdas & Streams
+Stream Pipeline
+graph LR
+    subgraph "Source"
+        A[Collection/Array]
+    end
+    
+    subgraph "Intermediate Operations (Lazy)"
+        B[filter]
+        C[map]
+        D[flatMap]
+        E[sorted]
+        F[distinct]
+    end
+    
+    subgraph "Terminal Operation (Eager)"
+        G[collect]
+        H[reduce]
+        I[forEach]
+        J[count]
+    end
+    
+    A --> B --> C --> D --> E --> F --> G
+    
+    style B fill:#FFE4B5
+    style C fill:#FFE4B5
+    style D fill:#FFE4B5
+    style E fill:#FFE4B5
+    style F fill:#FFE4B5
+    style G fill:#90EE90
+public class StreamExamples {
+    
+    // Transformări complexe
+    public Map<String, List<Order>> getOrdersByCustomerCity(List<Order> orders) {
+        return orders.stream()
+            .filter(order -> order.getStatus() == OrderStatus.COMPLETED)
+            .collect(Collectors.groupingBy(
+                order -> order.getCustomer().getCity()
+            ));
+    }
+    
+    // flatMap pentru nested structures
+    public List<String> getAllProductNames(List<Order> orders) {
+        return orders.stream()
+            .flatMap(order -> order.getItems().stream())
+            .map(OrderItem::getProductName)
+            .distinct()
+            .sorted()
+            .collect(Collectors.toList());
+    }
+    
+    // Reduce pentru agregări
+    public BigDecimal calculateTotalRevenue(List<Order> orders) {
+        return orders.stream()
+            .map(Order::getTotal)
+            .reduce(BigDecimal.ZERO, BigDecimal::add);
+    }
+    
+    // Parallel stream - cu grijă!
+    public long countExpensiveOrders(List<Order> orders) {
+        return orders.parallelStream() // ⚠️ Doar pentru colecții MARI
+            .filter(order -> order.getTotal().compareTo(threshold) > 0)
+            .count();
+    }
+}
+📦 SECȚIUNEA 7: CLEAN CODE & BEST PRACTICES
+Q100-Q120: Professional Development
+SOLID Quick Reference
+graph TB
+    subgraph "S - Single Responsibility"
+        S1[O clasă = un motiv de schimbare]
+    end
+    
+    subgraph "O - Open/Closed"
+        O1[Deschis pentru extensie]
+        O2[Închis pentru modificare]
+    end
+    
+    subgraph "L - Liskov Substitution"
+        L1[Subtipurile pot înlocui părinții]
+    end
+    
+    subgraph "I - Interface Segregation"
+        I1[Interfețe mici și specifice]
+    end
+    
+    subgraph "D - Dependency Inversion"
+        D1[Depinde de abstracții]
+        D2[Nu de implementări]
+    end
+Code Quality Checklist
+flowchart TD
+    A[Cod nou] --> B{Are teste?}
+    B -->|Nu| C[❌ Scrie teste întâi]
+    B -->|Da| D{Respectă SRP?}
+    D -->|Nu| E[Refactor: extrage clase]
+    D -->|Da| F{Metode < 20 linii?}
+    F -->|Nu| G[Refactor: extrage metode]
+    F -->|Da| H{Nume clare?}
+    H -->|Nu| I[Rename pentru claritate]
+    H -->|Da| J{Documentație necesară?}
+    J -->|Da| K[Adaugă Javadoc]
+    J -->|Nu| L[✅ Ready for review]
+🎯 CHEAT SHEET FINAL
+Reguli de Aur Java Senior
+Concept
+Regulă
+Anti-pattern
+OOP
+Rich Domain Model
+Anemic Domain Model
+Încapsulare
+Comportament, nu date
+Getter/Setter pentru tot
+Moștenire
+Preferă compoziția
+Ierarhii adânci
+Comparații
+equals() pentru valori
+== pentru obiecte
+Null
+Optional pentru return
+Null checks everywhere
+Exceptions
+Unchecked + documentație
+Checked pentru tot
+Immutability
+Default immutable
+Mutable by default
+Generics
+PECS
+Raw types
+Quick Reference: Când folosești ce?
+ArrayList vs LinkedList?
+  → ArrayList (aproape întotdeauna)
+
+HashMap vs TreeMap?
+  → HashMap (O(1) vs O(log n))
+  → TreeMap doar dacă ai nevoie de sortare
+
+Checked vs Unchecked Exception?
+  → Unchecked pentru erori de programare
+  → Checked doar când caller TREBUIE să gestioneze
+
+Optional vs null?
+  → Optional pentru return values
+  → Evită Optional ca field sau parametru
+
+Record vs Class?
+  → Record pentru date imutabile simple
+  → Class pentru comportament complex
+💡 Regula supremă pentru Senior Engineer:
+"Judecata tehnică: a ști CE SĂ NU FACI este mai important decât a ști ce să faci."
