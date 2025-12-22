@@ -1,12 +1,14 @@
 {
-  "rewrites": [
+  "redirects": [
     {
-      "source": "/docs/(.*)",
-      "destination": "/docs/$1"
+      "source": "/docs",
+      "destination": "/",
+      "permanent": false
     },
     {
-      "source": "/(.*)",
-      "destination": "/docs/index.html"
+      "source": "/docs/(.*)",
+      "destination": "/$1",
+      "permanent": false
     }
   ]
 }
