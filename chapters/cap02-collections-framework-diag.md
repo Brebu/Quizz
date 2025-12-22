@@ -134,13 +134,19 @@ classDiagram
 
 ```mermaid
 graph TB
-    subgraph "ArrayList - Array Continuu"
-        A[Index 0<br/>Element A] --- B[Index 1<br/>Element B] --- C[Index 2<br/>Element C] --- D[Index 3<br/>Element D]
+    subgraph ArrayList["ArrayList - Array Continuu"]
+        A["Index 0<br/>Element A"] --- B["Index 1<br/>Element B"]
+        B --- C["Index 2<br/>Element C"]
+        C --- D["Index 3<br/>Element D"]
     end
     
-    subgraph "LinkedList - Noduri Înlănțuite"
-        N1[◀ prev | A | next ▶] <--> N2[◀ prev | B | next ▶] <--> N3[◀ prev | C | next ▶]
+    subgraph LinkedList["LinkedList - Noduri Înlănțuite"]
+        N1["◀ prev · A · next ▶"] <--> N2["◀ prev · B · next ▶"]
+        N2 <--> N3["◀ prev · C · next ▶"]
     end
+    
+    style ArrayList fill:#e3f2fd
+    style LinkedList fill:#fff3e0
 ```
 
 ### Comparație Vizuală Performanță
