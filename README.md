@@ -9,3 +9,8 @@
 6. Deploy.
 
 Docsify runs client-side and `vercel.json` rewrites all routes to `docs/index.html`.
+
+
+## Verify on Vercel
+- Open `/docs/README.md` and `/docs/_sidebar.md` to ensure static files are served.
+- If you still see `Loading...`, check DevTools → Network for 404 on `.md` files.

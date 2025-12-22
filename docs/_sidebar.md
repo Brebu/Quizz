@@ -1,4 +1,4 @@
-- [Home](/)
+- [Home](README.md)
 
 - Capitole
   - **Cap 01 – Java Core & OOP**
