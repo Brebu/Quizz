@@ -119,7 +119,7 @@ Testing pyramid, integration tests, CI/CD și bune practici DevOps.
 ---
 
 ## 🧭 Cum să folosești site-ul
-- ☰ **Meniul** din stânga sus îți permite navigarea rapidă
+- ☰ **Meniul** din stânga jos îți permite navigarea rapidă
 - 🔍 **Search** caută în toate cele 24 de pagini
 - Poți citi:
   - doar Q&A (pentru interviuri)
