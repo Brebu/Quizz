@@ -1,39 +1,39 @@
-- [Home](README.md)
+- [Home](/)
 
 - Capitole
   - **Cap 01 – Java Core & OOP**
-    - [Întrebări (FINAL)](chapters/cap01-java-core-oop-qa.md)
-    - [Diagrame & fluxuri (full)](chapters/cap01-java-core-oop-diag.md)
+    - [Întrebări (FINAL)](/chapters/cap01-java-core-oop-qa.md)
+    - [Diagrame & fluxuri (full)](/chapters/cap01-java-core-oop-diag.md)
   - **Cap 02 – Collections Framework**
-    - [Întrebări (FINAL)](chapters/cap02-collections-framework-qa.md)
-    - [Diagrame & fluxuri (full)](chapters/cap02-collections-framework-diag.md)
+    - [Întrebări (FINAL)](/chapters/cap02-collections-framework-qa.md)
+    - [Diagrame & fluxuri (full)](/chapters/cap02-collections-framework-diag.md)
   - **Cap 03 – Concurrency & Multithreading**
-    - [Întrebări (FINAL)](chapters/cap03-concurrency-multithreading-qa.md)
-    - [Diagrame & fluxuri (full)](chapters/cap03-concurrency-multithreading-diag.md)
+    - [Întrebări (FINAL)](/chapters/cap03-concurrency-multithreading-qa.md)
+    - [Diagrame & fluxuri (full)](/chapters/cap03-concurrency-multithreading-diag.md)
   - **Cap 04 – JVM, GC & Performance**
-    - [Întrebări (FINAL)](chapters/cap04-jvm-gc-performance-qa.md)
-    - [Diagrame & fluxuri (full)](chapters/cap04-jvm-gc-performance-diag.md)
+    - [Întrebări (FINAL)](/chapters/cap04-jvm-gc-performance-qa.md)
+    - [Diagrame & fluxuri (full)](/chapters/cap04-jvm-gc-performance-diag.md)
   - **Cap 05 – Spring Framework Core**
-    - [Întrebări (FINAL)](chapters/cap05-spring-framework-core-qa.md)
-    - [Diagrame & fluxuri (full)](chapters/cap05-spring-framework-core-diag.md)
+    - [Întrebări (FINAL)](/chapters/cap05-spring-framework-core-qa.md)
+    - [Diagrame & fluxuri (full)](/chapters/cap05-spring-framework-core-diag.md)
   - **Cap 06 – Spring Boot**
-    - [Întrebări (FINAL)](chapters/cap06-spring-boot-qa.md)
-    - [Diagrame & fluxuri (full)](chapters/cap06-spring-boot-diag.md)
+    - [Întrebări (FINAL)](/chapters/cap06-spring-boot-qa.md)
+    - [Diagrame & fluxuri (full)](/chapters/cap06-spring-boot-diag.md)
   - **Cap 07 – Spring MVC & REST**
-    - [Întrebări (FINAL)](chapters/cap07-spring-mvc-rest-qa.md)
-    - [Diagrame & fluxuri (full)](chapters/cap07-spring-mvc-rest-diag.md)
+    - [Întrebări (FINAL)](/chapters/cap07-spring-mvc-rest-qa.md)
+    - [Diagrame & fluxuri (full)](/chapters/cap07-spring-mvc-rest-diag.md)
   - **Cap 08 – Spring Data JPA & Hibernate**
-    - [Întrebări (FINAL)](chapters/cap08-spring-data-jpa-hibernate-qa.md)
-    - [Diagrame & fluxuri (full)](chapters/cap08-spring-data-jpa-hibernate-diag.md)
+    - [Întrebări (FINAL)](/chapters/cap08-spring-data-jpa-hibernate-qa.md)
+    - [Diagrame & fluxuri (full)](/chapters/cap08-spring-data-jpa-hibernate-diag.md)
   - **Cap 09 – Spring Security**
-    - [Întrebări (FINAL)](chapters/cap09-spring-security-qa.md)
-    - [Diagrame & fluxuri (full)](chapters/cap09-spring-security-diag.md)
+    - [Întrebări (FINAL)](/chapters/cap09-spring-security-qa.md)
+    - [Diagrame & fluxuri (full)](/chapters/cap09-spring-security-diag.md)
   - **Cap 10 – Microservicii & Distributed Systems**
-    - [Întrebări (FINAL)](chapters/cap10-microservicii-distributed-systems-qa.md)
-    - [Diagrame & fluxuri (full)](chapters/cap10-microservicii-distributed-systems-diag.md)
+    - [Întrebări (FINAL)](/chapters/cap10-microservicii-distributed-systems-qa.md)
+    - [Diagrame & fluxuri (full)](/chapters/cap10-microservicii-distributed-systems-diag.md)
   - **Cap 11 – Messaging & Kafka**
-    - [Întrebări (FINAL)](chapters/cap11-messaging-kafka-qa.md)
-    - [Diagrame & fluxuri (full)](chapters/cap11-messaging-kafka-diag.md)
+    - [Întrebări (FINAL)](/chapters/cap11-messaging-kafka-qa.md)
+    - [Diagrame & fluxuri (full)](/chapters/cap11-messaging-kafka-diag.md)
   - **Cap 12 – Testing & DevOps**
-    - [Întrebări (FINAL)](chapters/cap12-testing-devops-qa.md)
-    - [Diagrame & fluxuri (full)](chapters/cap12-testing-devops-diag.md)
+    - [Întrebări (FINAL)](/chapters/cap12-testing-devops-qa.md)
+    - [Diagrame & fluxuri (full)](/chapters/cap12-testing-devops-diag.md)
