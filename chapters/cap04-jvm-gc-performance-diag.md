@@ -448,7 +448,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "Serial GC"
+    subgraph SerialGC["Serial GC"]
         SER["Single-threaded<br/>-XX:+UseSerialGC"]
         SER --> SER1["✅ Simple, low overhead"]
         SER --> SER2["✅ Good for small heaps"]
@@ -456,7 +456,7 @@ graph TB
         SER --> SER4["📱 Use: Client apps, containers"]
     end
     
-    subgraph "Parallel GC"
+    subgraph ParallelGC["Parallel GC"]
         PAR["Multi-threaded<br/>-XX:+UseParallelGC"]
         PAR --> PAR1["✅ High throughput"]
         PAR --> PAR2["✅ Good for batch"]
@@ -464,7 +464,7 @@ graph TB
         PAR --> PAR4["🖥️ Use: Batch processing"]
     end
     
-    subgraph "G1 GC (Default Java 9+)"
+    subgraph G1GC["G1 GC (Default Java 9+)"]
         G1["Region-based<br/>-XX:+UseG1GC"]
         G1 --> G11["✅ Predictable pauses"]
         G1 --> G12["✅ Good balance"]
@@ -472,13 +472,18 @@ graph TB
         G1 --> G14["🌐 Use: Most applications"]
     end
     
-    subgraph "ZGC"
-        ZGC["Concurrent<br/>-XX:+UseZGC"]
-        ZGC --> ZGC1["✅ Sub-ms pauses"]
-        ZGC --> ZGC2["✅ TB-scale heaps"]
-        ZGC --> ZGC3["⚠️ Some CPU overhead"]
-        ZGC --> ZGC4["💹 Use: Low-latency critical"]
+    subgraph ZGCGC["ZGC"]
+        Z["Concurrent<br/>-XX:+UseZGC"]
+        Z --> Z1["✅ Sub-ms pauses"]
+        Z --> Z2["✅ TB-scale heaps"]
+        Z --> Z3["⚠️ Some CPU overhead"]
+        Z --> Z4["💹 Use: Low-latency critical"]
     end
+    
+    style SerialGC fill:#ffebee
+    style ParallelGC fill:#e3f2fd
+    style G1GC fill:#e8f5e9
+    style ZGCGC fill:#fff3e0
 ```
 
 ### G1 GC Region-Based Architecture
