@@ -97,8 +97,8 @@ Authentication, authorization, filters, OAuth2, JWT și SSO flows.
 ### 10. Microservices & Distributed Systems
 Service decomposition, communication patterns, resilience și consistency.
 
-- ➡️ [Întrebări & Răspunsuri](/chapters/cap10-microservices-distributed-systems-qa.md)
-- ➡️ [Diagrame & Fluxuri](/chapters/cap10-microservices-distributed-systems-diag.md)
+- ➡️ [Întrebări & Răspunsuri](/chapters/cap10-microservicii-distributed-systems-qa.md)
+- ➡️ [Diagrame & Fluxuri](/chapters/cap10-microservicii-distributed-systems-diag.md)
 
 ---
 
