@@ -31,10 +31,10 @@
 
 ```mermaid
 graph TB
-    subgraph "Design Patterns (23 GoF)"
-        CP[Creational Patterns<br/>5 patterns]
-        SP[Structural Patterns<br/>7 patterns]
-        BP[Behavioral Patterns<br/>11 patterns]
+    subgraph DesignPatterns[Design Patterns - 23 GoF]
+        CP[Creational Patterns - 5 patterns]
+        SP[Structural Patterns - 7 patterns]
+        BP[Behavioral Patterns - 11 patterns]
     end
     
     CP --> C1[Singleton]
@@ -88,7 +88,7 @@ classDiagram
         +businessMethod()
     }
     
-    note for Singleton "Constructor privat\nO singură instanță\nAcces global prin getInstance()"
+    note for Singleton "Constructor privat, O singură instanță, Acces global prin getInstance()"
 ```
 
 #### Singleton - Secvența de creare
@@ -118,7 +118,7 @@ flowchart TD
     Start([getInstance called]) --> Check1{instance == null?}
     Check1 -->|No| Return[Return instance]
     Check1 -->|Yes| Lock[Acquire synchronized lock]
-    Lock --> Check2{instance == null?<br/>Double check}
+    Lock --> Check2{instance == null? Double check}
     Check2 -->|No| Unlock[Release lock]
     Check2 -->|Yes| Create[Create new instance]
     Create --> Unlock
@@ -135,7 +135,7 @@ flowchart TD
 
 ```mermaid
 graph LR
-    subgraph "ApplicationContext"
+    subgraph ApplicationContext
         BF[BeanFactory]
         SC[Singleton Cache]
     end
@@ -145,7 +145,7 @@ graph LR
     Client3[Client 3] -->|getBean| BF
     
     BF -->|check cache| SC
-    SC -->|return same| Bean[UserService<br/>instance]
+    SC -->|return same| Bean[UserService instance]
     
     Client1 -.->|reference| Bean
     Client2 -.->|reference| Bean
@@ -165,7 +165,7 @@ graph LR
 classDiagram
     class Creator {
         <<abstract>>
-        +factoryMethod()* Product
+        +factoryMethod() Product
         +operation() void
     }
     
@@ -220,22 +220,22 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph "Simple Factory (nu e GoF)"
+    subgraph SimpleFactory[Simple Factory - not GoF]
         SF[Factory Class]
         SF -->|creates| P1[Product A]
         SF -->|creates| P2[Product B]
         SF -->|creates| P3[Product C]
     end
     
-    subgraph "Factory Method (GoF)"
-        FM[Creator<br/>abstract]
+    subgraph FactoryMethod[Factory Method - GoF]
+        FM[Creator abstract]
         FM -->|delegează| C1[ConcreteCreator A]
         FM -->|delegează| C2[ConcreteCreator B]
         C1 -->|creates| P4[Product A]
         C2 -->|creates| P5[Product B]
     end
     
-    subgraph "Abstract Factory (GoF)"
+    subgraph AbstractFactory[Abstract Factory - GoF]
         AF[AbstractFactory]
         AF -->|familie 1| CF1[ConcreteFactory 1]
         AF -->|familie 2| CF2[ConcreteFactory 2]
@@ -305,22 +305,22 @@ classDiagram
 
 ```mermaid
 graph TB
-    subgraph "Client Code"
+    subgraph ClientCode[Client Code]
         App[Application]
     end
     
-    subgraph "Abstract Factory"
-        GF[GUIFactory<br/>interface]
+    subgraph AbstractFactory
+        GF[GUIFactory interface]
     end
     
-    subgraph "Windows Family"
+    subgraph WindowsFamily[Windows Family]
         WF[WindowsFactory]
         WB[WindowsButton]
         WC[WindowsCheckbox]
         WM[WindowsMenu]
     end
     
-    subgraph "MacOS Family"
+    subgraph MacOSFamily[MacOS Family]
         MF[MacOSFactory]
         MB[MacOSButton]
         MC[MacOSCheckbox]
@@ -415,7 +415,7 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph "Telescoping Constructor Anti-pattern"
+    subgraph TelescopingConstructor[Telescoping Constructor Anti-pattern]
         TC1[Pizza size]
         TC2[Pizza size, cheese]
         TC3[Pizza size, cheese, pepperoni]
@@ -425,7 +425,7 @@ graph TB
         TC1 --> TC2 --> TC3 --> TC4 --> TC5
     end
     
-    subgraph "Builder Pattern"
+    subgraph BuilderPattern[Builder Pattern]
         B[Pizza.Builder size]
         B -->|optional| B1[.cheese true]
         B -->|optional| B2[.pepperoni true]
@@ -480,26 +480,26 @@ classDiagram
 
 ```mermaid
 graph TB
-    subgraph "Original Object"
+    subgraph OriginalObject[Original Object]
         O[Document]
-        O --> T[Title: 'Report']
-        O --> C[Content: 'Data...']
+        O --> T[Title: Report]
+        O --> C[Content: Data...]
         O --> I[Images: List]
         I --> I1[image1.jpg]
         I --> I2[image2.png]
     end
     
-    subgraph "Shallow Copy"
+    subgraph ShallowCopy[Shallow Copy]
         SC[Document Copy]
-        SC --> T2[Title: 'Report']
-        SC --> C2[Content: 'Data...']
+        SC --> T2[Title: Report]
+        SC --> C2[Content: Data...]
         SC -.->|shared reference| I
     end
     
-    subgraph "Deep Copy"
+    subgraph DeepCopy[Deep Copy]
         DC[Document Copy]
-        DC --> T3[Title: 'Report']
-        DC --> C3[Content: 'Data...']
+        DC --> T3[Title: Report]
+        DC --> C3[Content: Data...]
         DC --> I3[Images: New List]
         I3 --> I4[image1.jpg copy]
         I3 --> I5[image2.png copy]
@@ -541,7 +541,7 @@ classDiagram
     Adapter o-- Adaptee
     Client --> Target
     
-    note for Adapter "request() {\n  adaptee.specificRequest()\n}"
+    note for Adapter "request() calls adaptee.specificRequest()"
 ```
 
 #### Adapter - Flux de execuție
@@ -564,19 +564,19 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph "Your System"
+    subgraph YourSystem[Your System]
         App[Application]
-        MP[MediaPlayer<br/>interface]
+        MP[MediaPlayer interface]
     end
     
-    subgraph "Adapter Layer"
+    subgraph AdapterLayer[Adapter Layer]
         VLC[VLCAdapter]
         MP4[MP4Adapter]
     end
     
-    subgraph "Third-party Libraries"
-        VLCP[VLCPlayer<br/>playVLC]
-        MP4P[MP4Player<br/>playMP4]
+    subgraph ThirdPartyLibs[Third-party Libraries]
+        VLCP[VLCPlayer playVLC]
+        MP4P[MP4Player playMP4]
     end
     
     App -->|uses| MP
@@ -636,15 +636,15 @@ graph TB
     C[Client]
     D1[Sugar Decorator]
     D2[Milk Decorator]
-    CC[Coffee<br/>ConcreteComponent]
+    CC[Coffee ConcreteComponent]
     
     C -->|calls| D1
     D1 -->|wraps| D2
     D2 -->|wraps| CC
     
     CC -->|$2.00| D2
-    D2 -->|$2.00 + $0.50<br/>= $2.50| D1
-    D1 -->|$2.50 + $0.20<br/>= $2.70| C
+    D2 -->|$2.00 + $0.50 = $2.50| D1
+    D1 -->|$2.50 + $0.20 = $2.70| C
     
     style CC fill:#e1f5e1
     style D2 fill:#fff4e1
@@ -655,7 +655,7 @@ graph TB
 
 ```mermaid
 graph TB
-    subgraph "With Inheritance (rigid)"
+    subgraph WithInheritance[With Inheritance - rigid]
         B[Beverage]
         B --> BC[BeverageWithCheese]
         B --> BS[BeverageWithSugar]
@@ -665,17 +665,17 @@ graph TB
         B --> BMS[BeverageWithMilkAndSugar]
         B --> BMCS[BeverageWithMilkCheeseAndSugar]
         
-        Note1[With 3 add-ons<br/>= 2^3 = 8 classes]
+        Note1[With 3 add-ons = 2^3 = 8 classes]
     end
     
-    subgraph "With Decorator (flexible)"
+    subgraph WithDecorator[With Decorator - flexible]
         Bev[Beverage]
         
-        D1[Cheese<br/>Decorator]
-        D2[Sugar<br/>Decorator]
-        D3[Milk<br/>Decorator]
+        D1[Cheese Decorator]
+        D2[Sugar Decorator]
+        D3[Milk Decorator]
         
-        Note2[With 3 decorators<br/>= 3 classes<br/>infinite combinations]
+        Note2[With 3 decorators = 3 classes, infinite combinations]
     end
     
     style B fill:#ffe1e1
@@ -719,21 +719,21 @@ classDiagram
 
 ```mermaid
 graph TB
-    subgraph "Virtual Proxy (Lazy Loading)"
+    subgraph VirtualProxy[Virtual Proxy - Lazy Loading]
         VP[Proxy]
         VP -->|first access| Load[Load real object]
         Load --> Real1[Real Subject]
         VP -->|subsequent| Real1
     end
     
-    subgraph "Protection Proxy (Access Control)"
+    subgraph ProtectionProxy[Protection Proxy - Access Control]
         PP[Proxy]
         PP -->|check permissions| Auth{Authorized?}
         Auth -->|Yes| Real2[Real Subject]
         Auth -->|No| Error[Access Denied]
     end
     
-    subgraph "Cache Proxy"
+    subgraph CacheProxy[Cache Proxy]
         CP[Proxy]
         CP -->|check| Cache{In cache?}
         Cache -->|Yes| Return[Return cached]
@@ -758,14 +758,14 @@ sequenceDiagram
     
     Client->>+Proxy: method()
     
-    Proxy->>+Advisor: @Before advice
+    Proxy->>+Advisor: Before advice
     Note over Advisor: Logging, security, etc.
     Advisor-->>-Proxy: proceed
     
     Proxy->>+Target: method()
     Target-->>-Proxy: result
     
-    Proxy->>+Advisor: @AfterReturning advice
+    Proxy->>+Advisor: AfterReturning advice
     Advisor-->>-Proxy: proceed
     
     Proxy-->>-Client: result
@@ -814,7 +814,7 @@ classDiagram
 
 ```mermaid
 graph TB
-    subgraph "Without Facade"
+    subgraph WithoutFacade[Without Facade]
         C1[Client]
         C1 --> CPU1[CPU.freeze]
         C1 --> MEM1[Memory.load]
@@ -825,7 +825,7 @@ graph TB
         Note1[Complex: Client knows all subsystems]
     end
     
-    subgraph "With Facade"
+    subgraph WithFacade[With Facade]
         C2[Client]
         C2 --> F[ComputerFacade.start]
         
@@ -877,22 +877,22 @@ classDiagram
 
 ```mermaid
 graph TB
-    Root[Root Directory<br/>Composite]
+    Root[Root Directory Composite]
     
-    Root --> Home[Home Directory<br/>Composite]
-    Root --> Usr[Usr Directory<br/>Composite]
+    Root --> Home[Home Directory Composite]
+    Root --> Usr[Usr Directory Composite]
     
-    Home --> User[User Directory<br/>Composite]
-    Home --> FileA[readme.txt<br/>Leaf]
+    Home --> User[User Directory Composite]
+    Home --> FileA[readme.txt Leaf]
     
-    User --> FileB[doc.txt<br/>Leaf]
-    User --> FileC[image.jpg<br/>Leaf]
+    User --> FileB[doc.txt Leaf]
+    User --> FileC[image.jpg Leaf]
     
-    Usr --> Bin[Bin Directory<br/>Composite]
-    Usr --> FileD[config<br/>Leaf]
+    Usr --> Bin[Bin Directory Composite]
+    Usr --> FileD[config Leaf]
     
-    Bin --> FileE[bash<br/>Leaf]
-    Bin --> FileF[python<br/>Leaf]
+    Bin --> FileE[bash Leaf]
+    Bin --> FileF[python Leaf]
     
     style Root fill:#e1f5e1
     style Home fill:#e1f5e1
@@ -978,7 +978,7 @@ classDiagram
 
 ```mermaid
 flowchart TD
-    Start([Client Request]) --> Select{Select Payment<br/>Method}
+    Start([Client Request]) --> Select{Select Payment Method}
     Select -->|Credit Card| CC[CreditCardStrategy]
     Select -->|PayPal| PP[PayPalStrategy]
     Select -->|Bitcoin| BTC[BitcoinStrategy]
@@ -1000,16 +1000,16 @@ flowchart TD
 
 ```mermaid
 graph TB
-    subgraph "Without Strategy (Anti-pattern)"
+    subgraph WithoutStrategy[Without Strategy - Anti-pattern]
         C1[PaymentProcessor]
-        C1 -->|if type == 'card'| CC1[Credit card logic]
-        C1 -->|else if type == 'paypal'| PP1[PayPal logic]
-        C1 -->|else if type == 'bitcoin'| BTC1[Bitcoin logic]
+        C1 -->|if type == card| CC1[Credit card logic]
+        C1 -->|else if type == paypal| PP1[PayPal logic]
+        C1 -->|else if type == bitcoin| BTC1[Bitcoin logic]
         
-        Note1[Violates Open-Closed<br/>Hard to extend]
+        Note1[Violates Open-Closed, Hard to extend]
     end
     
-    subgraph "With Strategy"
+    subgraph WithStrategy[With Strategy]
         C2[Context]
         S[Strategy Interface]
         
@@ -1019,7 +1019,7 @@ graph TB
         
         C2 -->|uses| S
         
-        Note2[Open for extension<br/>Easy to add new strategies]
+        Note2[Open for extension, Easy to add new strategies]
     end
     
     style C1 fill:#ffe1e1
@@ -1104,16 +1104,16 @@ sequenceDiagram
 
 ```mermaid
 graph LR
-    subgraph "Event Publisher"
+    subgraph EventPublisher[Event Publisher]
         Service[UserService]
         Pub[ApplicationEventPublisher]
     end
     
-    subgraph "Event Bus"
+    subgraph EventBus[Event Bus]
         EB[Spring Event Bus]
     end
     
-    subgraph "Event Listeners"
+    subgraph EventListeners[Event Listeners]
         L1[EmailListener]
         L2[AnalyticsListener]
         L3[NotificationListener]
@@ -1208,21 +1208,21 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph "Command History"
+    subgraph CommandHistory[Command History]
         direction TB
         S[Command Stack]
-        S --> C1[WriteCommand 'Hello']
-        C1 --> C2[WriteCommand ' World']
+        S --> C1[WriteCommand Hello]
+        C1 --> C2[WriteCommand World]
         C2 --> C3[DeleteCommand 5 chars]
-        C3 --> C4[WriteCommand '!']
+        C3 --> C4[WriteCommand !]
     end
     
-    subgraph "Text State"
-        T1[Text: '']
-        T2[Text: 'Hello']
-        T3[Text: 'Hello World']
-        T4[Text: 'Hello ']
-        T5[Text: 'Hello !']
+    subgraph TextState[Text State]
+        T1[Text: empty]
+        T2[Text: Hello]
+        T3[Text: Hello World]
+        T4[Text: Hello]
+        T5[Text: Hello !]
     end
     
     C1 -.->|execute| T2
@@ -1248,8 +1248,8 @@ classDiagram
     class AbstractClass {
         <<abstract>>
         +templateMethod() void
-        #step1()* void
-        #step2()* void
+        #step1() void
+        #step2() void
         #hook() void
     }
     
@@ -1267,18 +1267,18 @@ classDiagram
     AbstractClass <|-- ConcreteClassA
     AbstractClass <|-- ConcreteClassB
     
-    note for AbstractClass "templateMethod() {\n  step1();\n  step2();\n  hook();\n}"
+    note for AbstractClass "templateMethod() calls step1(), step2(), hook()"
 ```
 
 #### Template Method - Execution Flow
 
 ```mermaid
 flowchart TD
-    Start([Client calls templateMethod]) --> Step1[Call step1<br/>abstract method]
-    Step1 --> Step2[Call step2<br/>abstract method]
-    Step2 --> Hook{Hook method<br/>overridden?}
+    Start([Client calls templateMethod]) --> Step1[Call step1 abstract method]
+    Step1 --> Step2[Call step2 abstract method]
+    Step2 --> Hook{Hook method overridden?}
     Hook -->|Yes| CallHook[Call hook]
-    Hook -->|No| Default[Use default<br/>implementation]
+    Hook -->|No| Default[Use default implementation]
     CallHook --> End
     Default --> End([Return])
     
@@ -1318,9 +1318,9 @@ sequenceDiagram
     
     JdbcTemplate->>Connection: close()
     
-    JdbcTemplate-->>-Client: List<Object>
+    JdbcTemplate-->>-Client: List of Objects
     
-    Note over Client,RowMapper: Template manages resources<br/>Hook handles domain logic
+    Note over Client,RowMapper: Template manages resources, Hook handles domain logic
 ```
 
 ---
@@ -1363,15 +1363,15 @@ flowchart LR
     Client[Client] --> H1[Handler 1]
     
     H1 -->|Can handle?| D1{Decision}
-    D1 -->|Yes| Process1[Process request<br/>STOP]
+    D1 -->|Yes| Process1[Process request STOP]
     D1 -->|No| H2[Handler 2]
     
     H2 -->|Can handle?| D2{Decision}
-    D2 -->|Yes| Process2[Process request<br/>STOP]
+    D2 -->|Yes| Process2[Process request STOP]
     D2 -->|No| H3[Handler 3]
     
     H3 -->|Can handle?| D3{Decision}
-    D3 -->|Yes| Process3[Process request<br/>STOP]
+    D3 -->|Yes| Process3[Process request STOP]
     D3 -->|No| Fallback[No handler found]
     
     style Process1 fill:#e1f5e1
@@ -1597,12 +1597,12 @@ sequenceDiagram
 
 ```mermaid
 flowchart TD
-    Start([Client calls @Transactional method]) --> Proxy{Proxy intercepts}
+    Start([Client calls Transactional method]) --> Proxy{Proxy intercepts}
     
     Proxy --> Begin[Begin Transaction]
     Begin --> Target[Invoke target method]
     
-    Target --> Success{Method<br/>successful?}
+    Target --> Success{Method successful?}
     
     Success -->|Yes| Commit[Commit Transaction]
     Success -->|No| Rollback[Rollback Transaction]
@@ -1622,16 +1622,16 @@ flowchart TD
 
 ```mermaid
 graph TB
-    subgraph "Your Code"
-        Interface[UserRepository<br/>extends JpaRepository]
+    subgraph YourCode[Your Code]
+        Interface[UserRepository extends JpaRepository]
     end
     
-    subgraph "Spring Data JPA"
+    subgraph SpringDataJPA[Spring Data JPA]
         Proxy[Dynamic Proxy]
         Template[SimpleJpaRepository]
     end
     
-    subgraph "JPA/Hibernate"
+    subgraph JPAHibernate[JPA/Hibernate]
         EM[EntityManager]
         Session[Hibernate Session]
     end
@@ -1656,16 +1656,16 @@ graph TB
 
 ```mermaid
 graph TB
-    Start([User clicks Checkout]) --> Builder[Builder Pattern<br/>Build Order object]
+    Start([User clicks Checkout]) --> Builder[Builder Pattern - Build Order object]
     
-    Builder --> Strategy[Strategy Pattern<br/>Select Payment]
+    Builder --> Strategy[Strategy Pattern - Select Payment]
     
-    Strategy --> CC{Payment<br/>Type?}
+    Strategy --> CC{Payment Type?}
     CC -->|Credit Card| CCStrat[CreditCardStrategy]
     CC -->|PayPal| PPStrat[PayPalStrategy]
     CC -->|Bitcoin| BTCStrat[BitcoinStrategy]
     
-    CCStrat --> Chain[Chain of Responsibility<br/>Validation chain]
+    CCStrat --> Chain[Chain of Responsibility - Validation chain]
     PPStrat --> Chain
     BTCStrat --> Chain
     
@@ -1673,13 +1673,13 @@ graph TB
     V1 --> V2[InventoryValidator]
     V2 --> V3[FraudValidator]
     
-    V3 --> Template[Template Method<br/>Process Order]
+    V3 --> Template[Template Method - Process Order]
     
     Template --> T1[Create Transaction]
     T1 --> T2[Update Inventory]
     T2 --> T3[Send Confirmation]
     
-    T3 --> Observer[Observer Pattern<br/>Notify listeners]
+    T3 --> Observer[Observer Pattern - Notify listeners]
     
     Observer --> O1[EmailListener]
     Observer --> O2[SMSListener]
@@ -1700,23 +1700,23 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Service A"
+    subgraph ServiceA[Service A]
         A[User Service]
-        AC[Circuit Breaker<br/>Proxy]
+        AC[Circuit Breaker Proxy]
     end
     
-    subgraph "Message Bus"
-        MB[Kafka/RabbitMQ<br/>Observer Pattern]
+    subgraph MessageBus[Message Bus]
+        MB[Kafka/RabbitMQ Observer Pattern]
     end
     
-    subgraph "Service B"
+    subgraph ServiceB[Service B]
         B[Order Service]
-        BF[Factory<br/>Order Factory]
+        BF[Factory Order Factory]
     end
     
-    subgraph "Service C"
+    subgraph ServiceC[Service C]
         C[Notification Service]
-        CS[Strategy<br/>Notification Strategy]
+        CS[Strategy Notification Strategy]
     end
     
     A -->|REST call| AC
@@ -1742,23 +1742,23 @@ graph LR
 
 ```mermaid
 flowchart TD
-    Start{What's your<br/>problem?}
+    Start{What's your problem?}
     
-    Start -->|Object creation| Create{How complex<br/>is creation?}
+    Start -->|Object creation| Create{How complex is creation?}
     Create -->|Single instance| Singleton
     Create -->|Multiple steps| Builder
     Create -->|Family of objects| AbstractFactory
     Create -->|Delegate to subclass| FactoryMethod
     Create -->|Clone existing| Prototype
     
-    Start -->|Object structure| Structure{What structure<br/>issue?}
+    Start -->|Object structure| Structure{What structure issue?}
     Structure -->|Incompatible interface| Adapter
     Structure -->|Add responsibilities| Decorator
     Structure -->|Control access| Proxy
     Structure -->|Simplify complex| Facade
     Structure -->|Tree structure| Composite
     
-    Start -->|Object behavior| Behavior{What behavior<br/>issue?}
+    Start -->|Object behavior| Behavior{What behavior issue?}
     Behavior -->|Algorithm selection| Strategy
     Behavior -->|State changes| State
     Behavior -->|Event notification| Observer
@@ -1782,4 +1782,7 @@ Design patterns sunt instrumente puternice pentru rezolvarea problemelor recuren
 
 - **Vizualizarea structurii** fiecărui pattern
 - **Înțelegerea fluxurilor** de execuție
-- **Identificarea contextu
+- **Identificarea contextului** potrivit pentru fiecare pattern
+- **Implementarea corectă** în proiecte reale
+
+Aceste diagrame servesc ca referință rapidă pentru dezvoltatori și arhitecți software în luarea deciziilor de design.
