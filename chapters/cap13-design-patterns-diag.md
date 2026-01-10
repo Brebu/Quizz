@@ -1497,13 +1497,13 @@ sequenceDiagram
 
 ```mermaid
 graph TB
-    subgraph "Configuration"
-        Config[Configuration<br/>@Configuration]
-        Config --> Bean1[@Bean methods]
+    subgraph Configuration
+        Config[Configuration]
+        Config --> Bean1[Bean methods]
         Config --> Bean2[Component scanning]
     end
     
-    subgraph "IoC Container"
+    subgraph IoCContainer[IoC Container]
         BF[BeanFactory]
         AC[ApplicationContext]
         BF --> AC
@@ -1512,7 +1512,7 @@ graph TB
         AC --> Metadata[Bean Definitions]
     end
     
-    subgraph "Bean Lifecycle"
+    subgraph BeanLifecycle[Bean Lifecycle]
         Create[Instantiation]
         Populate[Dependency Injection]
         Init[Initialization]
@@ -1536,20 +1536,20 @@ graph TB
 
 ```mermaid
 graph LR
-    subgraph "Client Code"
+    subgraph ClientCode[Client Code]
         C[Client]
     end
     
-    subgraph "Spring AOP Proxy"
-        P[JDK Dynamic Proxy<br/>or<br/>CGLIB Proxy]
+    subgraph SpringAOPProxy[Spring AOP Proxy]
+        P[JDK Dynamic Proxy or CGLIB Proxy]
         
-        Advice1[@Before]
-        Advice2[@Around]
-        Advice3[@After]
+        Advice1[Before Advice]
+        Advice2[Around Advice]
+        Advice3[After Advice]
     end
     
-    subgraph "Target Bean"
-        T[@Service<br/>UserService]
+    subgraph TargetBean[Target Bean]
+        T[UserService]
     end
     
     C -->|call method| P
