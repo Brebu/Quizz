@@ -126,13 +126,6 @@ Cele 23 de Design Patterns GoF (Creational, Structural, Behavioral) cu implement
 
 ---
 
-### 14. Miscellaneous Topics
-Întrebări diverse frecvente în interviuri: Agile/Kanban, Java Evolution (11/17/21), Streams, Optional, Threads, ObjectMapper, Spring Framework, Microservices, Databases, DevOps, System Design.
-
-- ➡️ [Întrebări & Răspunsuri](/chapters/cap14-miscellaneous-full.md)
-
----
-
 ## 🧭 Cum să folosești site-ul
 - ☰ **Meniul** din stânga jos îți permite navigarea rapidă
 - 🔍 **Search** caută în toate cele 24 de pagini
