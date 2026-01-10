@@ -118,6 +118,21 @@ Testing pyramid, integration tests, CI/CD și bune practici DevOps.
 
 ---
 
+### 13. Design Patterns
+Cele 23 de Design Patterns GoF (Creational, Structural, Behavioral) cu implementări în Spring Framework.
+
+- ➡️ [Întrebări & Răspunsuri](/chapters/cap13-design-patterns-qa.md)
+- ➡️ [Diagrame & Fluxuri](/chapters/cap13-design-patterns-diag.md)
+
+---
+
+### 14. Miscellaneous Topics
+Întrebări diverse frecvente în interviuri: Agile/Kanban, Java Evolution (11/17/21), Streams, Optional, Threads, ObjectMapper, Spring Framework, Microservices, Databases, DevOps, System Design.
+
+- ➡️ [Întrebări & Răspunsuri](/chapters/cap14-miscellaneous-full.md)
+
+---
+
 ## 🧭 Cum să folosești site-ul
 - ☰ **Meniul** din stânga jos îți permite navigarea rapidă
 - 🔍 **Search** caută în toate cele 24 de pagini

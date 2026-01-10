@@ -37,3 +37,8 @@
   - **Cap 12 – Testing & DevOps**
     - [Întrebări (FINAL)](/chapters/cap12-testing-devops-qa.md)
     - [Diagrame & fluxuri (full)](/chapters/cap12-testing-devops-diag.md)
+  - **Cap 13 – Design Patterns**
+    - [Întrebări (FINAL)](/chapters/cap13-design-patterns-qa.md)
+    - [Diagrame & fluxuri (full)](/chapters/cap13-design-patterns-diag.md)
+- **Cap 14 – Cumulate**
+    - [Cumulate (FINAL)](/chapters/cap14-miscellaneous-full.md)
